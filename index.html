@@ -1,3 +1,377 @@
-<h4>
-  <div> Hello </div>
-</h4>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Kysm0o's Fursonas - ArtFight Profile</title>
+<style>
+
+  /* ===== CSS car Art Fight n'aime pas le CSS séparé >:( ===== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+    background: linear-gradient(to bottom, #3a6ea5 0%, #5a8fc7 40%, #bcd6ee 70%, #d4e8f7 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding: 40px 20px 20px;
+  }
+
+  /* ===== TITLE BAR / LOGO ZONE ===== */
+  .page-title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .page-title h1 {
+    display: inline-block;
+    background: linear-gradient(to bottom, #2a6fd6 0%, #1a4ea0 50%, #0f3a80 100%);
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 12px 40px;
+    border-radius: 10px;
+    border: 2px solid #0a2d63;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.4);
+    text-shadow: 1px 1px 2px #000;
+    letter-spacing: 1px;
+  }
+
+  .page-title p {
+    color: #0a2d63;
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+  }
+
+  /* ===== XP WINDOW ===== */
+  .xp-window {
+    max-width: 950px;
+    margin: 0 auto 30px;
+    border: 1px solid #0a246a;
+    border-radius: 8px 8px 3px 3px;
+    box-shadow: 3px 3px 12px rgba(0,0,0,0.5);
+    background: #ece9d8;
+    overflow: hidden;
+  }
+
+  .xp-titlebar {
+    background: linear-gradient(to bottom, #2a6fd6 0%, #1958c7 8%, #1148c0 40%, #0d3fae 60%, #08308c 100%);
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4px 0 6px;
+    border-bottom: 1px solid #0a246a;
+  }
+
+  .xp-titlebar-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 13px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  }
+
+  .xp-titlebar-icon {
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 3px;
+    display: inline-block;
+  }
+
+  .xp-titlebar-buttons {
+    display: flex;
+    gap: 3px;
+  }
+
+  .xp-btn {
+    width: 21px;
+    height: 20px;
+    background: linear-gradient(to bottom, #3a7fe0, #1a4fb0);
+    border: 1px solid #0a2d63;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .xp-btn.close {
+    background: linear-gradient(to bottom, #e8746a, #c0392b);
+  }
+
+  .xp-menubar {
+    background: #ece9d8;
+    border-bottom: 1px solid #aca899;
+    padding: 4px 8px;
+    font-size: 12px;
+    display: flex;
+    gap: 16px;
+    color: #333;
+  }
+
+  .xp-content {
+    background: #fff;
+    padding: 20px;
+  }
+
+  /* ===== INTRO TEXT ===== */
+  .intro-box {
+    background: #fffbe0;
+    border: 1px solid #d4c97a;
+    border-radius: 4px;
+    padding: 14px 16px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  .intro-box b {
+    color: #0a3d8c;
+  }
+
+  /* ===== carte perso ===== */
+  .characters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .char-card {
+    border: 2px solid #919b9c;
+    border-radius: 6px;
+    background: #f5f5f0;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    overflow: hidden;
+  }
+
+  .char-card-header {
+    background: linear-gradient(to bottom, #6fa8e0, #3a6fc0);
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 6px 10px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+    border-bottom: 1px solid #2a4f90;
+  }
+
+  .char-card-img {
+    width: 100%;
+    height: 220px;
+    background: #d9d9d9 url('PLACEHOLDER_IMAGE_URL') center/cover no-repeat;
+    border-bottom: 2px solid #919b9c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 12px;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .char-card-body {
+    padding: 12px;
+    font-size: 13px;
+    color: #333;
+    line-height: 1.5;
+  }
+
+  .char-card-body dl {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    row-gap: 4px;
+  }
+
+  .char-card-body dt {
+    font-weight: bold;
+    color: #0a3d8c;
+  }
+
+  /* ===== boutton du bas profil art fight ===== */
+  .af-link {
+    text-align: center;
+    margin-top: 28px;
+  }
+
+  .af-button {
+    display: inline-block;
+    background: linear-gradient(to bottom, #f0f0f0, #d4d0c8);
+    border: 1px solid #716f64;
+    border-radius: 4px;
+    padding: 10px 24px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #222;
+    text-decoration: none;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3), inset 0 1px 0 #fff;
+  }
+
+  .af-button:hover {
+    background: linear-gradient(to bottom, #ffeec0, #f0d090);
+    border-color: #c08000;
+  }
+
+  /* ===== Windows barre du bas bleu truc machin chose ===== */
+  .taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 34px;
+    background: linear-gradient(to bottom, #2a85e8 0%, #1558c7 50%, #0a3fa8 100%);
+    border-top: 1px solid #5aa0f0;
+    display: flex;
+    align-items: center;
+    z-index: 50;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.3);
+  }
+
+  .start-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 100%;
+    padding: 0 18px 0 10px;
+    background: linear-gradient(to bottom, #5cc95c 0%, #2a9e2a 50%, #1c7a1c 100%);
+    border-right: 1px solid #0a3fa8;
+    color: #fff;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 14px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+    clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
+  }
+
+  .taskbar-clock {
+    margin-left: auto;
+    margin-right: 14px;
+    background: linear-gradient(to bottom, #1a4fa8, #0a2d70);
+    border-left: 1px solid #5aa0f0;
+    color: #fff;
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 3px 0 0 3px;
+  }
+
+  @media (max-width: 600px) {
+    .page-title h1 { font-size: 18px; padding: 10px 20px; }
+    .xp-content { padding: 12px; }
+  }
+
+</style>
+</head>
+<body>
+
+  <div class="page-title">
+    <h1>My Characters - ArtFight</h1>
+    <p>~ Welcome to my characters page :33 ~</p>
+  </div>
+
+  <div class="xp-window">
+    <div class="xp-titlebar">
+      <div class="xp-titlebar-left">
+        <span class="xp-titlebar-icon"></span>
+        My Characters - Poopyland Explorer
+      </div>
+      <div class="xp-titlebar-buttons">
+        <div class="xp-btn">_</div>
+        <div class="xp-btn">□</div>
+        <div class="xp-btn close">x</div>
+      </div>
+    </div>
+
+    <div class="xp-menubar">
+      <span>Fichier</span>
+      <span>Edition</span>
+      <span>Affichage</span>
+      <span>Favoris</span>
+      <span><img src="https://i.redd.it/egbnebde4z5f1.gif" style="width:20px;height:auto;" alt=""></span>
+    </div>
+
+    <div class="xp-content">
+
+      <div class="intro-box">
+        Hi im <b>Kysm0o</b> ! Here is some of my anthro characters that you can find on my
+        <b>ArtFight</b>. My Fursona is a <b>serval</b>. Don't hesitate to attack me :3
+        Im currently working, i'll try to attack back as much as i can
+      </div>
+
+      <div class="characters">
+
+        <!-- ===== LEEEEEOONNNNNNNNNNN ===== -->
+        <div class="char-card">
+          <div class="char-card-header">Leon</div>
+          <div class="char-card-img">
+            [ Leon_pat_pat.gif ]
+          </div>
+          <div class="char-card-body">
+            <dl>
+              <dt>Species :</dt><dd>Serval</dd>
+              <dt>Statut :</dt><dd>Main</dd>
+              <dt>Colors :</dt><dd>Yelloish</dd>
+              <dt>Description :</dt><dd>He's a serval (obviously), he got some mark either side of his cheeks, silver shark bites, a silver eyebrowns piercing and three orange ring on his left ear</dd>
+            </dl>
+          </div>
+        </div>
+
+        <!-- ===== BOB ===== -->
+        <div class="char-card">
+          <div class="char-card-header">BOB</div>
+          <div class="char-card-img">
+            [ Github ]
+          </div>
+          <div class="char-card-body">
+            <dl>
+              <dt>Species :</dt><dd>BOB</dd>
+              <dt>Statut :</dt><dd>BOB</dd>
+              <dt>Colors :</dt><dd>BOB</dd>
+              <dt>Description :</dt><dd>BOB</dd>
+            </dl>
+          </div>
+        </div>
+
+        <!-- ===== Noktarus ===== -->
+        <div class="char-card">
+          <div class="char-card-header">Noktarus</div>
+          <div class="char-card-img">
+            [ link git hub a mettre en place avec l'image ]
+          </div>
+          <div class="char-card-body">
+            <dl>
+              <dt>Species :</dt><dd>Half Tiger shark, half wolf</dd>
+              <dt>Statut :</dt><dd>Forgotten (didnt draw him for a long time lol)</dd>
+              <dt>Colors :</dt><dd>Mostly gray and Dark blue</dd>
+              <dt>Description :</dt><dd>Idk how to describe him, hes there at least ? 🤔</dd>
+            </dl>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="af-link">
+        <a class="af-button"href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/The_Game_%28David_Fincher%29_logo.png/250px-The_Game_%28David_Fincher%29_logo.png">
+          → Button that does nothing for no reason 
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="taskbar">
+    <div class="start-button">▸ start</div>
+    <div class="taskbar-clock">ArtFight • Kysm0o</div>
+  </div>
+
+</body>
+</html>
